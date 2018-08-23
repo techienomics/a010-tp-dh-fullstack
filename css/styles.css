@@ -1,0 +1,24 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: rgb(227, 237, 199);
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+a {
+	display: block;
+	padding: 15px;
+}
+
+header {
+
+}
