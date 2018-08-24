@@ -33,31 +33,34 @@ function mayor($num1, $num2, $num3){
 	}
 }
 
+echo "<br>El resultado de la funcion mayor() para los numeros 12,5,8 es:<br>";
 echo mayor(12,5,8) . '<br>';
 
-echo '<hr>';
 
-
-function mayor2($num1, $num2, $num3){
+function mayorV2($num1, $num2, $num3){
 	return $num1 > $num2 ? ($num1 > $num3 ? $num1 : $num3) : ($num2 > $num3 ? $num2 : $num3);
 }
 
-echo mayor2(12,5,8) . '<br>';
+echo "<br>El resultado de la funcion mayorV2() para los numeros 12,5,8 es:<br>";
+echo mayorV2(12,5,8) . '<br>';
 
-echo '<hr>';
 
 #Definir una función tabla() que reciba un parámetro base, un parámetro límite, y devuelve un array con la secuencia de números desde el numero base hasta el numero limite, imprimir el resultado.
 
-function tabla($base,$limit){
-	$result = result();
-	for ($i=1; $base * $i < $limit; $i++) { 
-		$result[] = '$base * $i' . $base * $i;	
+
+function tabla($base, $limit){
+	$result = [];
+	for ($i = 1; $base * $i < $limit; $i++) {
+		$result[] = "$base * $i = " . $base * $i;
 	}
 	return $result;
 }
 
-#echo var_dump($result);
-echo '<hr>';
+echo "<br>El resultado de la funcion tabla() para los numeros base 3 y limite 12:<br>";
+echo "<pre>";
+print_r(tabla(3, 12));
+echo "</pre>";
+
 
 #Definir una variable llamada numeroMagico, que contenga un número, dicha variable deberá estar en la 1er línea de nuestro código PHP.
 
@@ -65,9 +68,9 @@ function numeroMagico($limitmin,$limitmax){
 	return rand($limitmin, $limitmax);
 }
 
+echo "<br>El resultado de la variable 'numeroMagico' random entre 0 y 300:<br>";
 $numeroMagico = numeroMagico(0,300);
-echo $numeroMagico;
-echo '<hr>';
+echo $numeroMagico . '<br>';
 
 # Modificar mayor() para que si recibe sólo 2 parámetros o si el tercer parámetro NO es un número (is_numeric()), compare a esos dos números con numeroMagico.
 
@@ -77,7 +80,8 @@ function mayorModificado($num1, $num2, $num3 = NULL){
 		$num3 = $numeroMagico;
 	}
 
-	if ($num1 > $num2 && $num1 > $num3) {
+	# la version resulta por javiEr usa esta version delreturn $num1 > $num2 ? ($num1 > $num3 ? $num1 : $num3) : ($num2 > $num3 ? $num2 : $num3);
+	if ($num1 > $num2 && $num1 > $num3) {  
 		return $num1;
 	} elseif ($num2 > $num1 && $num2 > $num3) {
 		return $num2;
@@ -86,24 +90,19 @@ function mayorModificado($num1, $num2, $num3 = NULL){
 	}
 }
 
+echo "<br>El resultado de la funcion mayorModificado() para los numeros 12,5,8 es:<br>";
 echo mayorModificado(4000,12) . '<br>';
 
 echo '<hr>';
 
-# Modificar tabla para que si recibe un sólo parámetro o si el segundo parámetro NO es un número, utilice numeroMagico como límite.
-
-echo "<br><br>";
-echo "version resulta por javier";
-echo "<br><br>";
-
-$numeroMagico = 1981;
+/* version resulta por javier
 
 	function mayor ($num1, $num2, $num3 = NULL) {
 		if ($num3 == NULL || !is_numeric($num3)) {
 			global $numeroMagico;
 			$num3 = $numeroMagico;
 		}
-		return $num1 > $num2 ? ($num1 > $num3 ? $num1 : $num3) : ($num2 > $num3 ? $num2 : $num3);
+		
 	}
 
 	echo mayor(10, 200, 30);
@@ -112,19 +111,25 @@ $numeroMagico = 1981;
 	echo "<hr>";
 	echo mayor(10, 200, "zz");
 	echo "<hr>";
+*/
 
-	function tabla($base, $limite){
-		$resultado = [];
+# Modificar tabla para que si recibe un sólo parámetro o si el segundo parámetro NO es un número, utilice numeroMagico como límite.
 
-		for ($i = 1; $base * $i < $limite; $i++) {
-			$resultado[] = "$base * $i = " . $base * $i;
-		}
-		return $resultado;
-	}
+function tablaModificada($base, $limit){
 
-	echo "<pre>";
-	print_r(tabla(23, 150));
-	echo "</pre>";
+}
+
+echo tablaModificada(3,5) . '<br>';
+
+echo '<hr>';
+
+/*
+echo "<br><br>";
+echo "version resuelta por javier en clase para revisar";
+echo "<br><br>";
+
+
+	
 
 	function triangulo ($base, $altura) {
 		return $base * ($altura / 2);
@@ -154,12 +159,13 @@ $numeroMagico = 1981;
 	echo circulo(4);
 	echo "<hr>";
 
-
+*/
 
 
 
 # Ejercicio 2 - Clase 4 PHP
 # 2. Generar un archivo llamado superficie.php:
+
 echo "<br><br>";
 echo "<h2> Ejercicio 2 - Clase 4 PHP </h2>";
 echo "<br><br>";
