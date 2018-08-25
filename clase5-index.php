@@ -142,12 +142,16 @@ echo "<br><br>";
 echo "<h2> Ejercicio 4 - Clase 5 PHP </h2>";
 echo "<br><br>";
 
+
+echo "<br>Imprime (print_r) el formulario enviando los datos mediante '_POST':<br>";
+
 //4. Agregar varios checkbox en respuesta a la siguiente pregunta "¿Qué hobbies tenés?".
 // Agregar un radio button para seleccionar el "estado civil".
 // Agregar un select con options para la pregunta "¿En qué país naciste?".
 // Completar el formulario seleccionando varias opciones de los checkbox, y enviar los datos a través de ambos métodos (GET y POST). Visualizar qué sucede en el archivo imprimir.php.
 
 ?>
+
 
 <!DOCTYPE HTML>
 <html>
@@ -158,7 +162,9 @@ echo "<br><br>";
 </head>
 
 <body>
-	<form action="clase5-index.php" method="post">
+
+    <h4>Formulario POST</h4>
+	<form action="clase5-index.php" method="POST">
 		<label for="nombre">Nombre:</label>
 			<input type="text" name="nombre" id="nombre"><br>
 		<label for="email">E-mail:</label>
@@ -172,16 +178,62 @@ echo "<br><br>";
  		 		<input type="radio" name="civil" value="female"> Female<br>
   				<input type="radio" name="civil" value="other"> Other <br>
 		<button type="submit">Dale caña</button>
-		<label for="civil">Cual es tu estado civil: </label><br>
-		<select name="pais" id="">
-			<option value=""></option>
-			<option value=""></option>
-			<option value=""></option>
+		<label for="civil">¿En que pais naciste?: </label><br>
+		<select name="pais">
+			Argentina <option value="Argentina"></option>
+			Brasil <option value="Brasil"></option>
+			Colombia <option value="Colombia"></option>
 		</select>
 	</form>
+
+
+    <h4>Formulario GET</h4>
+	<form action="clase5-index.php" method="GET">
+		<label for="nombre">Nombre:</label>
+			<input type="text" name="nombre" id="nombre"><br>
+		<label for="email">E-mail:</label>
+			<input type="email" name="email" id="email"><br>
+		<label for="hobbies">Cuales son tus hobbies: </label><br>
+			 	<input type="checkbox" name="hobbies[]" value="soccer"> Male<br>
+ 		 		<input type="checkbox" name="hobbies[]" value="rugby"> Female<br>
+  				<input type="checkbox" name="hobbies[]" value="dancing"> Other <br>
+		<label for="civil">Cual es tu estado civil: </label><br>
+			 	<input type="radio" name="civil" value="male"> Male<br>
+ 		 		<input type="radio" name="civil" value="female"> Female<br>
+  				<input type="radio" name="civil" value="other"> Other <br>
+		<label for="civil">¿En que pais naciste?: </label><br>
+		<select name="pais">
+			Argentina <option name="pais "value="Argentina"></option>
+			Brasil <option name="pais value="Brasil"></option>
+			Colombia <option name="pais alue="Colombia"></option>
+		</select>
+		<button type="submit">Dale caña</button>
+	</form>
+
 </body>
 
 </html>
+
+
+<?php
+
+	echo "<pre>";
+	print_r($_POST);
+	echo "</pre>";
+
+echo "<br>Imprime (print_r) el formulario enviando los datos mediante '_GET':<br>";
+
+	echo "<pre>";
+	print_r($_GET);
+	echo "</pre>";
+
+?>
+
+
+
+
+
+
 
 <!--
 Probar la función de php getAllHeaders() e imprimir su resultado. ¿Qué encontramos?
